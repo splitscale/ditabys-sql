@@ -20,7 +20,7 @@ CREATE TABLE HasPermission(
   containerID INT,
   PRIMARY KEY(hasPermissionID),
   FOREIGN KEY(userID) REFERENCES User(userID),
-  FOREIGN KEY(permiID) REFERENCES permission(permID),
+  FOREIGN KEY(permiID) REFERENCES Permission(permID),
   FOREIGN KEY(containerID) REFERENCES Container(containerID)
 );
 CREATE TABLE Container(
@@ -33,5 +33,5 @@ CREATE TABLE Content(
   contentText VARCHAR(255),
   containerID INT,
   PRIMARY KEY(contentID),
-  FOREIGN KEY(containerID) REFERENCES container(ContainerID)
+  FOREIGN KEY(containerID) REFERENCES Container(ContainerID)
 );
