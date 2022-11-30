@@ -1,0 +1,8 @@
+CREATE DATABASE fordaStore; 
+USE fordaStore;
+CREATE TABLE users(
+userID  INT PRIMARY KEY AUTO_INCREMENT,
+username VARCHAR(255) NOT NULL,
+userPassword  VARCHAR(255)  NOT NULL
+);
+
