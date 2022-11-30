@@ -13,20 +13,20 @@ CREATE TABLE Permission(
   description VARCHAR(255),
   PRIMARY KEY(permID)
 );
-CREATE TABLE HasPermission(
-  hasPermissionID INT AUTO_INCREMENT,
-  userID INT,
-  permiID INT,
-  containerID INT,
-  PRIMARY KEY(hasPermissionID),
-  FOREIGN KEY(userID) REFERENCES User(userID),
-  FOREIGN KEY(permiID) REFERENCES Permission(permID),
-  FOREIGN KEY(containerID) REFERENCES Container(containerID)
-);
 CREATE TABLE Container(
   containerID INT AUTO_INCREMENT,
   containerTitle VARCHAR(255),
   PRIMARY KEY(containerID),
+);
+CREATE TABLE HasPermission(
+  hasPermissionID INT AUTO_INCREMENT,
+  userID INT,
+  permID INT,
+  containerID INT,
+  PRIMARY KEY(hasPermissionID),
+  FOREIGN KEY(userID) REFERENCES User(userID),
+  FOREIGN KEY(permID) REFERENCES Permission(permID),
+  FOREIGN KEY(containerID) REFERENCES Container(containerID)
 );
 CREATE TABLE Content(
   contentID INT AUTO_INCREMENT,
