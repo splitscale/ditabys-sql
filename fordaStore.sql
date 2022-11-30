@@ -28,16 +28,18 @@ CREATE TABLE HasPermission (
   FOREIGN KEY(permID) REFERENCES Permission(permID),
   FOREIGN KEY(containerID) REFERENCES Container(containerID)
 );
-CREATE TABLE Content (
-  contentID INT AUTO_INCREMENT NOT NULL,
-  contentText VARCHAR(255) NOT NULL,
-  containerID INT NOT NULL,
-  PRIMARY KEY(contentID),
-  FOREIGN KEY(containerID) REFERENCES Container(containerID)
-);
 CREATE TABLE ContentCredentials(
   contentCredentialsID INT AUTO_INCREMENT,
   username VARCHAR(255) NOT NULL,
   contentCredentialsPassword VARCHAR(255) NOT NULL,
   PRIMARY KEY(contentCredentialsID)
+);
+CREATE TABLE Content (
+  contentID INT AUTO_INCREMENT NOT NULL,
+  contentText VARCHAR(255) NOT NULL,
+  containerID INT NOT NULL,
+  contentCredentialsID INT,
+  PRIMARY KEY(contentID),
+  FOREIGN KEY(containerID) REFERENCES Container(containerID),
+  FOREIGN KEY(contentCredentialsID) REFERENCES ContentCredentials( contentCredentialsID)
 );
