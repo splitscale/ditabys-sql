@@ -33,5 +33,5 @@ CREATE TABLE Content(
   contentText VARCHAR(255),
   containerID INT,
   PRIMARY KEY(contentID),
-  FOREIGN KEY(containerID) REFERENCES Container(ContainerID)
+  FOREIGN KEY(containerID) REFERENCES Container(containerID)
 );
