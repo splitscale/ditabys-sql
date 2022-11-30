@@ -31,7 +31,7 @@ CREATE TABLE HasPermission (
 CREATE TABLE ContentCredentials(
   contentCredentialsID INT AUTO_INCREMENT,
   username VARCHAR(255) NOT NULL,
-  contentCredentialsPassword VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
   PRIMARY KEY(contentCredentialsID)
 );
 CREATE TABLE Content (
