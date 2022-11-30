@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS fordaStore;
 CREATE DATABASE fordaStore;
 USE fordaStore;
+
 CREATE TABLE User (
   userID INT AUTO_INCREMENT NOT NULL,
   username VARCHAR(255) NOT NULL,
@@ -33,4 +34,10 @@ CREATE TABLE Content (
   containerID INT NOT NULL,
   PRIMARY KEY(contentID),
   FOREIGN KEY(containerID) REFERENCES Container(containerID)
+);
+CREATE TABLE ContentCredentials(
+  contentCredentialsID INT AUTO_INCREMENT,
+  username VARCHAR(255) NOT NULL,
+  contentCredentialsPassword VARCHAR(255) NOT NULL,
+  PRIMARY KEY(contentCredentialsID)
 );
