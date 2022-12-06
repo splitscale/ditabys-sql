@@ -30,3 +30,18 @@ CREATE TABLE Content (
   FOREIGN KEY(containerID) REFERENCES Container(containerID),
   FOREIGN KEY(contentCredentialsID) REFERENCES ContentCredentials( contentCredentialsID)
 );
+DELIMITER && 
+CREATE PROCEDURE getUserContainers(IN userID BIGINT)
+BEGIN 
+SELECT * FROM Container 
+WHERE Container.userID = userID;
+END&&
+DELIMITER ;  
+
+DELIMITER && 
+CREATE PROCEDURE getContainerContent(IN containerID BIGINT)
+BEGIN 
+SELECT * FROM Content 
+WHERE Content.contentID = containerID;
+END&&
+DELIMITER ;  
