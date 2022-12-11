@@ -1,14 +1,3 @@
-DROP DATABASE IF EXISTS sessions;
-CREATE DATABASE sessions;
-USE sessions;
-
-CREATE TABLE token (
-  token_id BIGINT AUTO_INCREMENT NOT NULL,
-  uid VARCHAR(255) UNIQUE NOT NULL,
-  public_key VARCHAR(1024) UNIQUE NOT NULL,
-  PRIMARY KEY(token_id)
-);
-
 DROP DATABASE IF EXISTS fordastore;
 CREATE DATABASE fordastore;
 USE fordastore;
@@ -35,7 +24,7 @@ CREATE TABLE url_credentials (
 );
 CREATE TABLE url (
   url_id BIGINT AUTO_INCREMENT NOT NULL,
-  url VARCHAR(255) NOT NULL,
+  url VARCHAR(2000) NOT NULL,
   container_id BIGINT NOT NULL,
   credentials_id BIGINT,
   PRIMARY KEY(url_id),
