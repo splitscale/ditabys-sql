@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS sessions;
-CREATE DATABASE sessions;
-USE sessions;
+DROP DATABASE IF EXISTS auth;
+CREATE DATABASE auth;
+USE auth;
 
 CREATE TABLE token (
   token_id BIGINT NOT NULL,
