@@ -170,18 +170,8 @@ DELIMITER ;
 DELIMITER && 
 CREATE PROCEDURE deleteURL(IN url_id BIGINT)
 BEGIN 
-
 DELETE FROM url
 WHERE url_id = url_id;
-END&&
-DELIMITER ;
-
-DELIMITER && 
-CREATE PROCEDURE updateURLCredentials(IN credentials_id BIGINT, username VARCHAR(255))
-BEGIN 
-UPDATE url_credentials
-SET username = username
-WHERE credentials_id = credentials_id;
 END&&
 DELIMITER ;
 
