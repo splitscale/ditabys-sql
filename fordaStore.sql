@@ -126,3 +126,78 @@ FROM container
 WHERE container_title = container_title);
 END&&
 DELIMITER ;
+
+DELIMITER && 
+CREATE PROCEDURE updateUser(IN user_id BIGINT, username VARCHAR(255), password VARCHAR(255),uid VARCHAR(255))
+BEGIN 
+UPDATE user SET username = username, password = password, uid = uid WHERE user_id = user_id;
+END&&
+DELIMITER ;
+
+DELIMITER && 
+CREATE PROCEDURE updateUsername(IN user_id BIGINT, username VARCHAR(255))
+BEGIN 
+UPDATE user SET username = username WHERE user_id = user_id;
+END&&
+DELIMITER ;
+
+DELIMITER && 
+CREATE PROCEDURE updateContainer(IN container_id BIGINT, container_title VARCHAR(255))
+BEGIN 
+UPDATE container
+SET container_title =container_title
+WHERE container_id = container_id;
+END&&
+DELIMITER ;
+
+DELIMITER && 
+CREATE PROCEDURE deleteContainer(IN container_id BIGINT)
+BEGIN 
+DELETE FROM container
+WHERE container_id = container_id;
+END&&
+DELIMITER ;
+
+DELIMITER && 
+CREATE PROCEDURE updateURL(IN url_id BIGINT, url VARCHAR(2000))
+BEGIN 
+UPDATE url
+SET url = url
+WHERE url_id = url_id;
+END&&
+DELIMITER ;
+
+DELIMITER && 
+CREATE PROCEDURE deleteURL(IN url_id BIGINT)
+BEGIN 
+
+DELETE FROM url
+WHERE url_id = url_id;
+END&&
+DELIMITER ;
+
+DELIMITER && 
+CREATE PROCEDURE updateURLCredentials(IN credentials_id BIGINT, username VARCHAR(255))
+BEGIN 
+UPDATE url_credentials
+SET username = username
+WHERE credentials_id = credentials_id;
+END&&
+DELIMITER ;
+
+DELIMITER && 
+CREATE PROCEDURE updateURLCredentials(IN credentials_id BIGINT, username VARCHAR(255))
+BEGIN 
+UPDATE url_credentials
+SET username = username
+WHERE credentials_id = credentials_id;
+END&&
+DELIMITER ;
+
+DELIMITER && 
+CREATE PROCEDURE deleteURLCredentials(IN credentials_id BIGINT)
+BEGIN 
+DELETE FROM url_credentials
+WHERE credentials_id = credentials_id;
+END&&
+DELIMITER ;
