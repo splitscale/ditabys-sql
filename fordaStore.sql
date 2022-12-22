@@ -76,7 +76,7 @@ END&&
 DELIMITER && 
 CREATE PROCEDURE getUserContainers(IN user_id BIGINT)
 BEGIN 
-SELECT * FROM Container 
+SELECT * FROM container 
 WHERE user_id = user_id;
 END&&
 DELIMITER ;  
