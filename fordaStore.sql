@@ -40,7 +40,7 @@ END&&
 DELIMITER ;  
 
 DELIMITER && 
-CREATE PROCEDURE newContainer(IN user_id BIGINT,container_title VARCHAR(255))
+CREATE PROCEDURE newContainer(IN user_id BIGINT, container_title VARCHAR(255))
 BEGIN 
 INSERT INTO container (user_id, container_title) VALUES  (user_id, container_title);
 END&&
@@ -63,22 +63,22 @@ DELIMITER ;
 DELIMITER && 
 CREATE PROCEDURE getUser(IN user_id BIGINT)
 BEGIN 
-SELECT * FROM user WHERE user.user_id = user_id;
+SELECT * FROM user WHERE user_id = user_id;
 END&&
 
 DELIMITER && 
 CREATE PROCEDURE getUserContainers(IN user_id BIGINT)
 BEGIN 
 SELECT * FROM Container 
-WHERE Container.userID = userID;
+WHERE user_id = user_id;
 END&&
 DELIMITER ;  
 
 DELIMITER && 
 CREATE PROCEDURE getContainerContent(IN container_id BIGINT)
 BEGIN 
-SELECT * FROM Content 
-WHERE Content.contentID = containerID;
+SELECT * FROM container
+WHERE container_id = container_id;
 END&&
 DELIMITER ;  
 
