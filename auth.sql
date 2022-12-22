@@ -13,7 +13,7 @@ DELIMITER &&
 CREATE PROCEDURE newToken(IN uid BIGINT, public_key VARCHAR(3000))
 BEGIN 
 INSERT INTO token (uid, public_key)
-VALUES (uid, public_key)
+VALUES (uid, public_key);
 END&&
 DELIMITER ;
 
