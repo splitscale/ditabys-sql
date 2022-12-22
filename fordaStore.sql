@@ -1,18 +1,25 @@
-DROP DATABASE IF EXISTS fordastore;
-CREATE DATABASE fordastore;
-USE fordastore;
+DROP DATABASE IF EXISTS shield;
+CREATE DATABASE shield;
+USE shield;
+
+CREATE TABLE public_key (
+  key_id binary(16) PRIMARY KEY NOT NULL,
+  key_value VARCHAR(3000) NOT NULL
+);
+
+DROP DATABASE IF EXISTS store;
+CREATE DATABASE store;
+USE store;
 
 CREATE TABLE user (
-  user_id BIGINT AUTO_INCREMENT NOT NULL,
-  username VARCHAR(255) NOT NULL UNIQUE,
-  password VARCHAR(255) NOT NULL,
-  uid VARCHAR(255) NOT NULL UNIQUE,
-  PRIMARY KEY(user_id)
+  user_id binary(16) PRIMARY KEY NOT NULL UNIQUE,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL
 );
 CREATE TABLE container (
   container_id BIGINT AUTO_INCREMENT NOT NULL,
   container_title VARCHAR(255) NOT NULL,
-  user_id BIGINT NOT NULL,
+  user_id binary(16) NOT NULL,
   PRIMARY KEY(container_id),
   FOREIGN KEY(user_id) REFERENCES user(user_id)
 );
@@ -33,14 +40,14 @@ CREATE TABLE url (
 );
 
 DELIMITER && 
-CREATE PROCEDURE newUser(IN username VARCHAR(255), password VARCHAR(255), uid VARCHAR(255))
+CREATE PROCEDURE newUser(IN user_id BINARY(16),username VARCHAR(255), password VARCHAR(255))
 BEGIN 
-INSERT INTO user (username, password, uid) VALUES (username, password, uid);
+INSERT INTO user (user_id, username, password) VALUES (user_id, username, password);
 END&&
 DELIMITER ;  
 
 DELIMITER && 
-CREATE PROCEDURE newContainer(IN user_id BIGINT, container_title VARCHAR(255))
+CREATE PROCEDURE newContainer(IN user_id BINARY(16), container_title VARCHAR(255))
 BEGIN 
 INSERT INTO container (user_id, container_title) VALUES  (user_id, container_title);
 END&&
